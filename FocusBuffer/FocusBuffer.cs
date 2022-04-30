@@ -1,12 +1,12 @@
 ﻿using Modding;
-using Vasi;
 using HutongGames.PlayMaker.Actions;
+using Vasi;
 
 namespace FocusBuffer
 {
     public class FocusBuffer : Mod
     {
-        public override string GetVersion() => "1.0.0";
+        public override string GetVersion() => "1.0.1";
 
         public override void Initialize()
         {
@@ -19,7 +19,7 @@ namespace FocusBuffer
 
             if (self.FsmName == "Spell Control")
             {
-                FsmUtil.GetAction<ListenForCast>(self, "Inactive", 1).isPressed = FsmUtil.GetAction<ListenForCast>(self, "Inactive", 1).wasPressed;
+                self.GetAction<ListenForCast>("Inactive", 1).isPressed = self.GetAction<ListenForCast>("Inactive", 1).wasPressed;
             }
         }
     }
